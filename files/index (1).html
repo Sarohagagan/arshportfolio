@@ -1,0 +1,215 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Arashdeep Singh — Toy Portfolio (Dummy)</title>
+  <style>
+    :root{
+      /* Colors matched to the screenshot: dark navy + gold accents */
+      --navy-900:#0c1420;   /* page background */
+      --navy-800:#111b2a;   /* header strip */
+      --navy-700:#162235;   /* panels */
+      --gold-500:#d4af37;   /* primary accent */
+      --gold-400:#e1c564;   /* lighter accent */
+      --text-100:#f5f7fa;   /* near white */
+      --text-70:#cbd3df;    /* muted */
+      --shadow:0 8px 20px rgba(0,0,0,.35);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;background:var(--navy-900);color:var(--text-100);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif}
+    a{color:var(--gold-400);text-decoration:none}
+    a:hover{color:var(--gold-500)}
+
+    /* Top header */
+    .top{border-bottom:2px solid var(--gold-500);background:var(--navy-800);}
+    .top-inner{max-width:1100px;margin:0 auto;padding:22px 20px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}
+    .brand h1{margin:0;font-size:clamp(30px,5vw,46px);color:var(--gold-500);letter-spacing:.2px}
+    .brand .roles{margin-top:6px;color:var(--text-70);font-weight:600}
+    .icons{display:flex;gap:24px;align-items:center}
+    .icons .ico{width:40px;height:40px;border:2px solid var(--gold-500);border-radius:50%;display:grid;place-items:center}
+    .ico svg{width:22px;height:22px;fill:var(--gold-500)}
+    .tagline{color:var(--gold-400);font-style:italic;font-weight:600}
+
+    /* Nav */
+    nav{border-top:2px solid var(--gold-500);border-bottom:2px solid var(--gold-500);background:var(--navy-800)}
+    .nav-inner{max-width:1100px;margin:0 auto;padding:8px 12px;display:flex;gap:16px;flex-wrap:wrap}
+    .tab{color:var(--text-100);border:2px solid var(--gold-500);padding:6px 14px;border-radius:6px;box-shadow:var(--shadow);background:var(--navy-700);font-weight:700}
+    .tab.active{background:var(--gold-500);color:var(--navy-900)}
+
+    /* Panel / hero */
+    .panel{max-width:1100px;margin:22px auto;padding:14px;background:var(--navy-800);border:2px solid var(--gold-500);border-radius:8px;box-shadow:var(--shadow)}
+    .hero{position:relative;border:2px solid var(--gold-400);border-radius:8px;overflow:hidden;background:#222}
+    .hero img,.hero svg{display:block;width:100%;height:auto}
+    .dots{display:flex;gap:10px;justify-content:center;align-items:center;padding:10px}
+    .dot{width:12px;height:12px;border-radius:50%;background:var(--navy-700);border:2px solid var(--gold-500)}
+    .dot.active{background:var(--gold-500)}
+
+    /* Category line */
+    .categories{max-width:1100px;margin:0 auto 18px;color:var(--text-70);font-size:14px}
+
+    /* Sections */
+    section{max-width:1100px;margin:22px auto;padding:0 10px}
+    h2{color:var(--gold-500);margin:0 0 10px;font-size:22px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+    .card{background:var(--navy-800);border:2px solid var(--gold-500);border-radius:8px;overflow:hidden;box-shadow:var(--shadow)}
+    .card header{background:var(--gold-500);color:var(--navy-900);padding:8px 12px;font-weight:800}
+    .card .body{padding:12px;color:var(--text-70)}
+    .thumb{height:140px;background:linear-gradient(135deg,var(--navy-700),#1e2b40)}
+
+    footer{border-top:2px solid var(--gold-500);background:var(--navy-800);color:var(--text-70)}
+    .footer-inner{max-width:1100px;margin:0 auto;padding:16px 20px}
+  </style>
+</head>
+<body>
+  <header class="top">
+    <div class="top-inner">
+      <div class="brand">
+        <h1>Arashdeep Singh</h1>
+        <div class="roles">Toy Inventor | Game Designer | Toy Designer</div>
+      </div>
+      <div>
+        <div class="icons" aria-label="Toy icons">
+          <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 13h18v2H3zM5 7h14v2H5zM8 17h8v2H8z"/></svg></div>
+          <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 2l7 7-7 13-7-13 7-7z"/></svg></div>
+          <div class="ico"><svg viewBox="0 0 24 24"><path d="M5 18l7-12 7 12H5z"/></svg></div>
+          <div class="ico"><svg viewBox="0 0 24 24"><circle cx="7" cy="18" r="3"/><circle cx="17" cy="18" r="3"/><path d="M4 15h16l-2-7H6z"/></svg></div>
+        </div>
+        <div class="tagline">Toy design for you...</div>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <div class="nav-inner" role="navigation" aria-label="Primary">
+      <a class="tab active" href="#home">HOME</a>
+      <a class="tab" href="#portfolio">PORTFOLIO</a>
+      <a class="tab" href="#about">ABOUT ME</a>
+      <a class="tab" href="#experience">WORK EXPERIENCE</a>
+      <a class="tab" href="#events">EVENTS</a>
+      <a class="tab" href="#contact">CONTACT</a>
+      <a class="tab" href="#blog">BLOG</a>
+    </div>
+  </nav>
+
+  <!-- HERO PANEL -->
+  <div class="panel">
+    <div class="hero" aria-label="Hero image">
+      <!-- Dummy hero image as inline SVG to keep single-file -->
+      <svg viewBox="0 0 900 380" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0" stop-color="#c6a334"/>
+            <stop offset="1" stop-color="#e1c564"/>
+          </linearGradient>
+        </defs>
+        <rect width="900" height="380" fill="#f1e4c5"/>
+        <rect x="50" y="40" width="800" height="300" rx="16" fill="url(#g)" opacity="0.25"/>
+        <rect x="80" y="70" width="740" height="240" rx="12" fill="#f9f9f9" stroke="#c9a64a" stroke-width="6"/>
+        <!-- Booth-like shapes -->
+        <polygon points="120,280 260,120 400,280" fill="#cfae57" opacity="0.9"/>
+        <polygon points="400,280 540,120 680,280" fill="#d9c17a" opacity="0.8"/>
+        <!-- Logo blocks -->
+        <rect x="120" y="85" width="80" height="40" rx="6" fill="#111b2a"/>
+        <rect x="700" y="85" width="80" height="40" rx="6" fill="#111b2a"/>
+      </svg>
+    </div>
+    <div class="dots" aria-hidden="true">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </div>
+
+  <div class="categories">
+    Toddler Toys, Preschool Toys, Educational Toys, Learning & Academic Toys, STEM Toys, STEAM Toys, Montessori Toys, Construction & Building Toys, Creative Toys, Art & Craft Toys, Pretend Play Toys, Role Play Toys
+  </div>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <h2>PORTFOLIO</h2>
+    <div class="grid">
+      <article class="card">
+        <header>RC Car</header>
+        <div class="thumb"></div>
+        <div class="body">Dummy description for a high-energy RC car project with durable chassis and kid-friendly controls.</div>
+      </article>
+      <article class="card">
+        <header>Soft Toys</header>
+        <div class="thumb"></div>
+        <div class="body">Dummy description for comfort-first plush toys with sensory details and safe stitching.</div>
+      </article>
+      <article class="card">
+        <header>Card Game</header>
+        <div class="thumb"></div>
+        <div class="body">Dummy description for a family-friendly strategy card game with quick rounds.</div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>ABOUT ME</h2>
+    <div class="grid">
+      <article class="card">
+        <header>Bio</header>
+        <div class="body">
+          Toy & Game Designer with 4+ years designing engaging, market-ready play products. Curious, hands-on, and focused on balancing creativity with manufacturability.
+        </div>
+      </article>
+      <article class="card">
+        <header>Focus</header>
+        <div class="body">Research → Concept → Detailing → Prototyping → Testing → Production Prep.</div>
+      </article>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <h2>WORK EXPERIENCE</h2>
+    <div class="grid">
+      <article class="card"><header>Skoodle — Deputy Manager & Toy Designer</header><div class="body">Jan 2025 — India. Lead ToyLab; cross-team collaboration; cost-effective toy development.</div></article>
+      <article class="card"><header>Chalkola — Product Designer</header><div class="body">Dec 2023 — Nov 2024, UAE. Concept → 3D → physical product; competitor research; cross-functional launches.</div></article>
+      <article class="card"><header>Freelancer — Toy & Game Designer</header><div class="body">May 2020 — India.</div></article>
+      <article class="card"><header>Fair And Green Toys — Toy Designer</header><div class="body">Jan 2023 — May 2023, USA. Wooden education range; sawdust project; packaging; sustainable materials.</div></article>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section id="events">
+    <h2>EVENTS</h2>
+    <div class="grid">
+      <article class="card"><header>Career Day — EDIX</header><div class="body">Dummy write-up on design careers talk at Lord Krishna International School.</div></article>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>CONTACT</h2>
+    <div class="grid">
+      <article class="card"><header>Email</header><div class="body"><a href="mailto:hello@example.com">hello@example.com</a></div></article>
+      <article class="card"><header>LinkedIn</header><div class="body"><a href="#">Profile</a></div></article>
+    </div>
+  </section>
+
+  <!-- BLOG -->
+  <section id="blog">
+    <h2>BLOG</h2>
+    <div class="grid">
+      <article class="card"><header>Clay, Creativity, and Childhood</header><div class="body">Dummy excerpt on tactile play and imagination.</div></article>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">© <span id="y"></span> Arashdeep Singh — Toy & Game Design</div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

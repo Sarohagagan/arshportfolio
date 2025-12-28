@@ -1,0 +1,111 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio — All Pages (Single HTML with Clickable Nav)</title>
+  <style>
+    :root{ --navy-900:#0c1420; --navy-800:#111b2a; --navy-700:#162235; --gold-500:#d4af37; --gold-400:#e1c564; --text-100:#f5f7fa; --text-70:#cbd3df; }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--navy-900);color:var(--text-100);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif}
+    header.sticky{position:sticky;top:0;z-index:10;background:var(--navy-800);border-bottom:2px solid var(--gold-500)}
+    .bar{max-width:1100px;margin:0 auto;padding:10px 12px;display:flex;align-items:center;gap:16px}
+    .brand{color:var(--gold-500);font-weight:800}
+    nav{margin-left:auto;display:flex;gap:10px;flex-wrap:wrap}
+    nav a{color:var(--text-100);border:2px solid var(--gold-500);padding:6px 10px;border-radius:6px;text-decoration:none;background:var(--navy-700);font-weight:700}
+    nav a:hover, nav a.active{background:var(--gold-500);color:var(--navy-900)}
+
+    main{max-width:1100px;margin:16px auto;padding:0 10px}
+    .page{background:var(--navy-800);border:2px solid var(--gold-500);border-radius:8px;overflow:hidden;margin-bottom:18px}
+    .page header{background:var(--gold-500);color:var(--navy-900);padding:8px 12px;font-weight:800;position:sticky;top:48px}
+    .page img{display:block;width:100%;height:auto}
+
+    .backtop{position:fixed;right:18px;bottom:18px;background:var(--gold-500);color:var(--navy-900);border-radius:999px;padding:10px 12px;border:2px solid var(--gold-500);text-decoration:none;font-weight:800}
+    .backtop:hover{background:transparent;color:var(--text-100)}
+
+    footer{border-top:2px solid var(--gold-500);background:var(--navy-800);color:var(--text-70);margin-top:24px}
+    .footer-inner{max-width:1100px;margin:0 auto;padding:14px 16px}
+  </style>
+</head>
+<body>
+  <a id="top"></a>
+  <header class="sticky">
+    <div class="bar">
+      <div class="brand">Portfolio</div>
+      <nav aria-label="Section navigation">
+        <a href="#home" id="link-home">HOME</a>
+        <a href="#portfolio" id="link-portfolio">PORTFOLIO</a>
+        <a href="#about" id="link-about">ABOUT ME</a>
+        <a href="#experience" id="link-experience">WORK EXPERIENCE</a>
+        <a href="#events" id="link-events">EVENTS</a>
+        <a href="#contact" id="link-contact">CONTACT</a>
+        <a href="#blog" id="link-blog">BLOG</a>
+
+      </nav>
+    </div>
+  </header>
+  <main>
+
+    <section class="page" id="home" aria-label="Home">
+      <header>Home — Page 1</header>
+      <img src="portfolio_page_1.jpg" alt="Home page image" />
+    </section>
+    
+    <section class="page" id="portfolio" aria-label="Portfolio">
+      <header>Portfolio — Page 2</header>
+      <img src="portfolio_page_2.jpg" alt="Portfolio page image" />
+    </section>
+    
+    <section class="page" id="about" aria-label="About Me">
+      <header>About Me — Page 3</header>
+      <img src="portfolio_page_3.jpg" alt="About Me page image" />
+    </section>
+    
+    <section class="page" id="experience" aria-label="Work Experience">
+      <header>Work Experience — Page 4</header>
+      <img src="portfolio_page_4.jpg" alt="Work Experience page image" />
+    </section>
+    
+    <section class="page" id="events" aria-label="Events">
+      <header>Events — Page 5</header>
+      <img src="portfolio_page_5.jpg" alt="Events page image" />
+    </section>
+    
+    <section class="page" id="contact" aria-label="Contact">
+      <header>Contact — Page 6</header>
+      <img src="portfolio_page_6.jpg" alt="Contact page image" />
+    </section>
+    
+    <section class="page" id="blog" aria-label="Blog">
+      <header>Blog — Page 7</header>
+      <img src="portfolio_page_7.jpg" alt="Blog page image" />
+    </section>
+    
+  </main>
+  <a class="backtop" href="#top" title="Back to top">↑ Top</a>
+  <footer>
+    <div class="footer-inner">© <span id="y"></span> Portfolio — All Pages</div>
+  </footer>
+  <script>
+    // year
+    document.getElementById('y').textContent = new Date().getFullYear();
+    // highlight active link on scroll
+    const links = Array.from(document.querySelectorAll('nav a'));
+    const sections = Array.from(document.querySelectorAll('main .page'));
+    const map = new Map(sections.map(s => [s.id, s]));
+
+    const onScroll = () => {
+      let current = sections[0].id;
+      const offset = 80; // sticky header height
+      for (const s of sections){
+        const top = s.getBoundingClientRect().top;
+        if (top - offset <= 0) current = s.id;
+      }
+      links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
+    };
+    document.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+  </script>
+</body>
+</html>
