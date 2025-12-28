@@ -235,6 +235,10 @@
             {
                 background: none;
             }
+            nav a
+            {
+                margin-right: 0px;
+            }
         }
         /* Responsive */
         @media (max-width:768px) {
