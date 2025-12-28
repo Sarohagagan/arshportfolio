@@ -233,7 +233,7 @@
         @media (max-width:567px) {
             header.top
             {
-                background-image: none;
+                background: none;
             }
         }
         /* Responsive */
