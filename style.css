@@ -230,8 +230,14 @@
             color: #ddb86b;
         }
 
+        @media (max-width:567px) {
+            header.top
+            {
+                background-image: none;
+            }
+        }
         /* Responsive */
-        @media (max-width:860px) {
+        @media (max-width:768px) {
             .top-inner {
                 grid-template-columns: 1fr
             }
